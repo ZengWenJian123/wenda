@@ -31,17 +31,22 @@ sudo tar xvf jdk-17_linux-x64_bin.tar.gz -C /usr/local/
 配置环境变量。要在系统中使用 JDK 17，您需要将其添加到 PATH 环境变量中。您可以使用以下命令将其添加到 /etc/profile 文件中：
 
 ```
- rm -f /etc/alternatives/java
- ln -s /usr/local/jdk-17.0.6/bin/java /etc/alternatives/java
-     echo export JAVA_HOME=/usr/local/jdk-17.0.6 >>/etc/profile
-     echo export PATH='$PATH':'$JAVA_HOME'/bin >>/etc/profile
-     echo export CLASSPATH=.:'$JAVA_HOME'/lib/dt.jar:'$JAVA_HOME'/lib/tools.jar >>/etc/profile
-     source /etc/profile
+rm -f /etc/alternatives/java
+ln -s /usr/local/jdk-17.0.6/bin/java /etc/alternatives/java
+echo export JAVA_HOME=/usr/local/jdk-17.0.6 >>/etc/profile
+echo export PATH='$PATH':'$JAVA_HOME'/bin >>/etc/profile
+echo export CLASSPATH=.:'$JAVA_HOME'/lib/dt.jar:'$JAVA_HOME'/lib/tools.jar >>/etc/profile
+source /etc/profile
 ```
 确认安装。您可以使用以下命令检查 JDK 17 是否已成功安装：
 ```
 java -version
 ```
+编辑之后使环境变量生效的命令：
+```
+source ~/.bashrc
+```
+
 如果一切正常，您应该会看到类似以下内容的输出：
 
 openjdk version "17.0.1" 2021-10-19
